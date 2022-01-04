@@ -64,7 +64,7 @@ public class ForTeacherActivity extends AppCompatActivity {
                 month = month + 1;
                 String date = dayOfMonth + "/" + month + "/" + year;
                 bDatePicker.setText(date);
-                //bDatePicker.setText(String.format("%d/%d/%d", dayOfMonth, month, year));
+
             }
         }, year, month, day);
         datePickerDialog.show();
