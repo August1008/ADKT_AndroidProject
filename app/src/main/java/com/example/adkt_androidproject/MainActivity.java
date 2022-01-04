@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 if (rbForTeacher.isChecked()) {
                     openForTeacher();
                 } else {
-                    return;
+                    openForStudent();
                 }
             }
         });
@@ -51,6 +51,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void openForTeacher(){
         Intent intent = new Intent(MainActivity.this, ForTeacherActivity.class);
+        startActivity(intent);
+    }
+
+    private void openForStudent(){
+        Intent intent = new Intent(MainActivity.this, ForStudentActivity.class);
         startActivity(intent);
     }
 }
