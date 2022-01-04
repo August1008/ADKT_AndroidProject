@@ -81,7 +81,5 @@ public class ForTeacherActivity extends AppCompatActivity {
         listStr.add("K");
         listStr.add("L");
         listStr.add("P");
-        listStr.add("L");
-        listStr.add("P");
     }
 }
