@@ -43,6 +43,7 @@
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
             <RadioButton
+                android:id="@+id/rbForTeacher"
                 android:padding="10dp"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -67,6 +68,7 @@
                 android:textColorHint="@color/white"/>
         </RadioGroup>
         <Button
+            android:id="@+id/bLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"

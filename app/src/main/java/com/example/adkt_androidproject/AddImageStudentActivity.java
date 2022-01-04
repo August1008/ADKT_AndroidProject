@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -30,7 +31,7 @@ import gun0912.tedbottompicker.TedBottomSheetDialogFragment;
 
 public class AddImageStudentActivity extends AppCompatActivity {
 
-    private Button bAddPhoto;
+    private Button bAddPhoto, bCreate;
     private RecyclerView rvPhoto;
     private PhotoAdapter photoAdapter;
     @Override
@@ -40,6 +41,8 @@ public class AddImageStudentActivity extends AppCompatActivity {
 
         bAddPhoto = findViewById(R.id.bAddPhoto);
         rvPhoto = findViewById(R.id.rvPhoto);
+        bCreate = findViewById(R.id.bCreate);
+
         photoAdapter = new PhotoAdapter(this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3, LinearLayoutManager.VERTICAL, false);
         rvPhoto.setLayoutManager(gridLayoutManager);
@@ -50,6 +53,12 @@ public class AddImageStudentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 requestPermission();
+            }
+        });
+        bCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                returnMain();
             }
         });
 
@@ -90,6 +99,12 @@ public class AddImageStudentActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void returnMain() {
+        Intent intent = new Intent(AddImageStudentActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
 }
