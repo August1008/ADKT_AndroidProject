@@ -61,7 +61,6 @@ public class AddImageStudentActivity extends AppCompatActivity {
                 returnMain();
             }
         });
-
     }
 
     private void requestPermission() {
