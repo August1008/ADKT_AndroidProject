@@ -1,5 +1,5 @@
 package com.example.adkt_androidproject;
-
+import static com.example.lib.RetrofitClient.getRetrofit;
 import static com.example.lib.RetrofitClient.getRetrofit;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,12 +9,22 @@ import android.os.Bundle;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.lib.Models.LoginUserModel;
+import com.example.lib.Models.StudentModel;
+import com.example.lib.Models.UserModel;
+import com.example.lib.Repository.IUserRepository;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import android.widget.Toast;
 
 import com.example.lib.Models.LoginUserModel;
@@ -95,6 +105,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void openForTeacher(){
         Intent intent = new Intent(MainActivity.this, ForTeacherActivity.class);
+        startActivity(intent);
+    }
+    private void openForStudent(){
+        Intent intent = new Intent(MainActivity.this, ForStudentActivity.class);
         startActivity(intent);
     }
 }

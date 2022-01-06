@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ADKT_AndroidProject">
         <activity
+            android:name=".ForStudentActivity"
+            android:exported="false" />
+        <activity
             android:name=".ForTeacherActivity"
             android:exported="false" />
         <activity
