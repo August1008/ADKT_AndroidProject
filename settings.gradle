@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "ADKT_AndroidProject"
 include ':app'
+include ':Lib'

@@ -12,7 +12,9 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +49,11 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
             Bitmap bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), uri);
             if (bitmap != null) {
                 holder.imgPhoto.setImageBitmap(bitmap);
+
+                int size = bitmap.getRowBytes() * bitmap.getHeight();
+                ByteBuffer byteBuffer = ByteBuffer.allocate(size);
+                bitmap.copyPixelsToBuffer(byteBuffer);
+                byte[] byteArray = byteBuffer.array();
             }
         } catch (IOException ioe) {
             ioe.printStackTrace();

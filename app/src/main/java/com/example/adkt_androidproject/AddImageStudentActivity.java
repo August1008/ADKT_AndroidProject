@@ -59,6 +59,7 @@ public class AddImageStudentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 returnMain();
+
             }
         });
 
