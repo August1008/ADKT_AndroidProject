@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(null,"dang nhap that bai",Toast.LENGTH_SHORT).show();
                             else
                             {
-
+                                openForStudent();
                                 Toast.makeText(MainActivity.this,studentModel.name,Toast.LENGTH_SHORT).show();
 
                             }
