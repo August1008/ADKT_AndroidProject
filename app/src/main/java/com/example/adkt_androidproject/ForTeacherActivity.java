@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -21,7 +22,7 @@ import java.util.List;
 
 public class ForTeacherActivity extends AppCompatActivity {
 
-    Button bDatePicker;
+    TextView tvDatePicker;
     RecyclerView rvSubjectTeacher;
     SubjectForTeacherAdapter subjectForTeacherAdapter;
     List<String> listStr;
@@ -31,7 +32,7 @@ public class ForTeacherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_for_teacher);
 
-        bDatePicker = findViewById(R.id.bDatePicker);
+       tvDatePicker = findViewById(R.id.tvDatePicker);
         rvSubjectTeacher = findViewById(R.id.rvSubjectTeacher);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvSubjectTeacher.setLayoutManager(linearLayoutManager);
@@ -41,14 +42,8 @@ public class ForTeacherActivity extends AppCompatActivity {
         rvSubjectTeacher.setAdapter(subjectForTeacherAdapter);
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        bDatePicker.setText(dtf.format(LocalDateTime.now()));
+        tvDatePicker.setText(dtf.format(LocalDateTime.now()));
 
-        bDatePicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setbDatePicker();
-            }
-        });
     }
 
     private void setbDatePicker() {
@@ -63,7 +58,7 @@ public class ForTeacherActivity extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 month = month + 1;
                 String date = dayOfMonth + "/" + month + "/" + year;
-                bDatePicker.setText(date);
+                tvDatePicker.setText(date);
 
             }
         }, year, month, day);
