@@ -33,6 +33,7 @@
             android:rowCount="3">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="0"
@@ -66,6 +67,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvSubject"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="0"
