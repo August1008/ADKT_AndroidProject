@@ -30,7 +30,12 @@
             android:text="Create"
             android:background="@drawable/custom_button"/>
     </LinearLayout>
-
+    <ProgressBar
+        android:id="@+id/simpleProgressBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="Widget.AppCompat.ProgressBar.SpinningWheelProgressBar"
+        android:visibility="invisible"/>
     <Button
         android:id="@+id/bAddPhoto"
         android:layout_width="match_parent"

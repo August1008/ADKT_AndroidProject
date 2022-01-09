@@ -12,17 +12,27 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
+import com.example.lib.Models.InsertModel.StudentInsertModel;
+import com.example.lib.Models.StudentModel;
+
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
 public class CreateAccountActivity extends AppCompatActivity {
 
-    EditText etDate;
+    EditText etDate,etUsername,etPassword,etEmail,etReenterPassword,etFullname,etStudentId;
     Button bNext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
 
+        etStudentId = findViewById(R.id.etStudentId);
+        etUsername = findViewById(R.id.etUsername);
+        etPassword = findViewById(R.id.etPassword);
+        etEmail = findViewById(R.id.etEmail);
+        etReenterPassword = findViewById(R.id.etReenterPassword);
+        etFullname = findViewById(R.id.etFullname);
         etDate = findViewById(R.id.etDate);
         bNext = findViewById(R.id.bNext);
 
@@ -49,13 +59,28 @@ public class CreateAccountActivity extends AppCompatActivity {
         bNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openAddImageStudent();
+
+                // xu ly nhập sai mật khẩu re-enter
+                // xu lý chưa điền đầy đủ thông tin
+
+                // Create a new student
+                StudentInsertModel newStudent = new StudentInsertModel(
+                        etUsername.getText().toString(),
+                        etPassword.getText().toString(),
+                        StudentModel.STUDENT,
+                        etStudentId.getText().toString(),
+                        etFullname.getText().toString(),
+                        etDate.getText().toString(),
+                        etEmail.getText().toString()
+                );
+                openAddImageStudent(newStudent);
             }
         });
     }
 
-    private void openAddImageStudent() {
+    private void openAddImageStudent(StudentInsertModel newStudent) {
         Intent intent = new Intent(CreateAccountActivity.this, AddImageStudentActivity.class);
+        intent.putExtra("newStudent",newStudent);
         startActivity(intent);
     }
 }
