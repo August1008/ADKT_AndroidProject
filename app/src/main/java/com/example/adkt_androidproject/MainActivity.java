@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (rbForTeacher.isChecked()) {
                     openForTeacher();
-                } else {
+                } else if (rbForStudent.isChecked()){
                     LoginUserModel loginUserModel = new LoginUserModel();
                     loginUserModel.Username = etUsername.getText().toString();
                     loginUserModel.Password = etPassword.getText().toString();
