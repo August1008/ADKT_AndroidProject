@@ -1,6 +1,6 @@
 package com.example.lib.Models.InsertModel;
 
 public class InsertResultModel {
-    public Boolean status;
+    public boolean status;
     public String message;
 }
