@@ -15,6 +15,8 @@ import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.adkt_androidproject.Interfaces.IClickItemListener;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -44,11 +46,16 @@ public class ForTeacherActivity extends AppCompatActivity {
         rvSubjectTeacher.setLayoutManager(linearLayoutManager);
         listStr = new ArrayList<>();
         addList();
-        subjectForTeacherAdapter = new SubjectForTeacherAdapter(listStr);
+        subjectForTeacherAdapter = new SubjectForTeacherAdapter(listStr, new IClickItemListener() {
+            @Override
+            public void onClickItem(String str) {
+                onClickGoToDetail(str);
+            }
+        });
         rvSubjectTeacher.setAdapter(subjectForTeacherAdapter);
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        tvDatePicker.setText(dtf.format(LocalDateTime.now()));
+        tvDatePicker.setText(dtf.format(LocalDateTime.now()) + "\nDanh sách lớp học");
 
         cvNew.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,16 +92,16 @@ public class ForTeacherActivity extends AppCompatActivity {
     }*/
 
     public void addList() {
-        listStr.add("A");
-        listStr.add("S");
-        listStr.add("D");
-        listStr.add("F");
-        listStr.add("G");
-        listStr.add("H");
-        listStr.add("J");
-        listStr.add("K");
-        listStr.add("L");
-        listStr.add("P");
+        listStr.add("19DTHA1");
+        listStr.add("19DTHA2");
+        listStr.add("19DTHA3");
+        listStr.add("19DTHA4");
+        listStr.add("19DTHA5");
+        listStr.add("19DTHA6");
+        listStr.add("19DTHA7");
+        listStr.add("19DTHA8");
+        listStr.add("19DTHA9");
+        listStr.add("19DTHA10");
     }
 
     private void startNewActivity() {
@@ -104,6 +111,14 @@ public class ForTeacherActivity extends AppCompatActivity {
 
     private void startHistoryActivity() {
         Intent intent = new Intent(this, HistoryActivity.class);
+        startActivity(intent);
+    }
+
+    private void onClickGoToDetail(String str) {
+        Intent intent = new Intent(this, DetailSubjectActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("object_subject", str);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 }
