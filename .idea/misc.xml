@@ -3,25 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/drawable/custom_button.xml" value="0.2521172638436482" />
-        <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/drawable/custom_button_circle.xml" value="0.2521172638436482" />
-        <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/drawable/custom_button_circles.xml" value="0.2521172638436482" />
-        <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/drawable/custom_edit_text.xml" value="0.2521172638436482" />
-        <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/drawable/custom_item.xml" value="0.2521172638436482" />
-        <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/drawable/custom_radio_button.xml" value="0.2521172638436482" />
-        <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/drawable/custom_radio_button_normal.xml" value="0.2521172638436482" />
-        <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/drawable/custom_radio_button_selected.xml" value="0.2521172638436482" />
-        <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/drawable/custom_radio_button_selector.xml" value="0.2521172638436482" />
-        <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_add_image_student.xml" value="0.25" />
-        <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_add_new.xml" value="0.33" />
-        <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_create_account.xml" value="0.2444078947368421" />
-        <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_for_student.xml" value="0.2444078947368421" />
-        <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_for_teacher.xml" value="0.13157894736842105" />
-        <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_history.xml" value="0.2444078947368421" />
-        <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_new.xml" value="0.2355263157894737" />
-        <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/item_photo.xml" value="0.2444078947368421" />
-        <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/item_subjects.xml" value="0.2444078947368421" />
+        <entry key="..\:/ADKT_AndroidProject/app/src/main/res/layout/activity_for_student.xml" value="0.14" />
+        <entry key="..\:/ADKT_AndroidProject/app/src/main/res/layout/activity_main.xml" value="0.14" />
+        <entry key="..\:/ADKT_AndroidProject/app/src/main/res/layout/activity_student_info.xml" value="0.25" />
       </map>
     </option>
   </component>

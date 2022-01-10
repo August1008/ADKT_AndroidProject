@@ -10,3 +10,4 @@ rootProject.name = "ADKT_AndroidProject"
 include ':app'
 include ':Lib'
 include ':Lib'
+include ':Lib'
