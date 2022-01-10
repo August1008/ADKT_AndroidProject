@@ -17,6 +17,9 @@
         android:theme="@style/Theme.ADKT_AndroidProject"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".StudentSubjectActivity"
+            android:exported="false" />
+        <activity
             android:name=".StudentInfoActivity"
             android:exported="false" />
         <activity

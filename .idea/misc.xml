@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/ADKT_AndroidProject/app/src/main/res/layout/activity_for_student.xml" value="0.14" />
+        <entry key="..\:/ADKT_AndroidProject/app/src/main/res/layout/activity_for_student.xml" value="0.17" />
         <entry key="..\:/ADKT_AndroidProject/app/src/main/res/layout/activity_main.xml" value="0.14" />
         <entry key="..\:/ADKT_AndroidProject/app/src/main/res/layout/activity_student_info.xml" value="0.25" />
+        <entry key="..\:/ADKT_AndroidProject/app/src/main/res/layout/activity_student_subject.xml" value="0.21" />
       </map>
     </option>
   </component>

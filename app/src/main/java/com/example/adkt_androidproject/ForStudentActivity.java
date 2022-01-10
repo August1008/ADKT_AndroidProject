@@ -2,10 +2,13 @@ package com.example.adkt_androidproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import java.util.List;
 
 public class ForStudentActivity extends AppCompatActivity {
     CardView cvSubject,cvInfo;
@@ -14,6 +17,7 @@ public class ForStudentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_for_student);
         cvSubject = findViewById(R.id.cvSubject);
+        cvInfo = findViewById(R.id.cvInfo);
         cvSubject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

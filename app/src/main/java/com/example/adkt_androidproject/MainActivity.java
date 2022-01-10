@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                         public void onResponse(Call<StudentModel> call, Response<StudentModel> response) {
                             StudentModel studentModel = response.body();
                             if(studentModel == null)
-                                Toast.makeText(null,"dang nhap that bai",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this,"dang nhap that bai",Toast.LENGTH_SHORT).show();
                             else
                             {
                                 openForStudent();
