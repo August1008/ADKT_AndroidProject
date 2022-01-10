@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -31,6 +32,7 @@ public class ForTeacherActivity extends AppCompatActivity {
     SubjectForTeacherAdapter subjectForTeacherAdapter;
     List<String> listStr;
     CardView cvNew, cvHistory, cvContact, cvInfo;
+    ImageButton ibLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,8 @@ public class ForTeacherActivity extends AppCompatActivity {
         rvSubjectTeacher = findViewById(R.id.rvSubjectTeacher);
         cvNew = findViewById(R.id.cvNew);
         cvHistory = findViewById(R.id.cvHistory);
+        ibLogout = findViewById(R.id.ibLogout);
+        cvInfo = findViewById(R.id.cvInfo);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvSubjectTeacher.setLayoutManager(linearLayoutManager);
@@ -68,6 +72,20 @@ public class ForTeacherActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startHistoryActivity();
+            }
+        });
+
+        ibLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startMainActivity();
+            }
+        });
+
+        cvInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startInfoTeacherActivity();
             }
         });
     }
@@ -114,11 +132,22 @@ public class ForTeacherActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void startMainActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
+
     private void onClickGoToDetail(String str) {
         Intent intent = new Intent(this, DetailSubjectActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("object_subject", str);
         intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
+    private void startInfoTeacherActivity() {
+        Intent intent = new Intent(this, InfoTeacherActivity.class);
         startActivity(intent);
     }
 }

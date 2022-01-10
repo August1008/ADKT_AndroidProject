@@ -26,7 +26,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectV
     @NonNull
     @Override
     public SubjectViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_subjects, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_student, parent, false);
         return new SubjectAdapter.SubjectViewHolder(view);
 
     }
@@ -37,7 +37,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectV
         if (str == null) {
             return;
         }
-        holder.tvSubjectName.setText(str);
+        holder.tvStudentName.setText(str);
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,13 +57,13 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectV
 
     public class SubjectViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvSubjectName;
+        TextView tvStudentName;
         LinearLayout layout;
 
         public SubjectViewHolder(@NonNull View itemView) {
             super(itemView);
-            layout = itemView.findViewById(R.id.item_subjects);
-            tvSubjectName = itemView.findViewById(R.id.tvSubjectName);
+            layout = itemView.findViewById(R.id.item_student);
+            tvStudentName = itemView.findViewById(R.id.tvStudentName);
         }
     }
 }

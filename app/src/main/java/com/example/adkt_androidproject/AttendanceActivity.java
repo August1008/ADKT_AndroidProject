@@ -3,6 +3,7 @@ package com.example.adkt_androidproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,7 +24,7 @@ import gun0912.tedbottompicker.TedBottomSheetDialogFragment;
 
 public class AttendanceActivity extends AppCompatActivity {
 
-    Button bAddPicture;
+    Button bAddPicture, bAction;
     ImageView ivPicture;
 
     @Override
@@ -33,6 +34,7 @@ public class AttendanceActivity extends AppCompatActivity {
 
         bAddPicture = findViewById(R.id.bAddPicture);
         ivPicture = findViewById(R.id.ivPicture);
+        bAction = findViewById(R.id.bAction);
 
         bAddPicture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +47,12 @@ public class AttendanceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 requestPermission();
+            }
+        });
+        bAction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startDetailAttendanceActivity();
             }
         });
     }
@@ -81,5 +89,9 @@ public class AttendanceActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+    public void startDetailAttendanceActivity() {
+        Intent intent = new Intent(this, DetailAttendanceActivity.class);
+        startActivity(intent);
     }
 }
