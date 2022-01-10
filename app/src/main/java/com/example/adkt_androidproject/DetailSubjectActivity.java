@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.adkt_androidproject.Interfaces.IClickItemListener;
@@ -15,18 +17,20 @@ import java.util.List;
 
 public class DetailSubjectActivity extends AppCompatActivity {
 
-    TextView tvTemp;
+    TextView tvClassName;
     RecyclerView rvSubject;
     List<String> listStr;
     SubjectAdapter subjectAdapter;
+    Button bAtten;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_subject);
 
-        tvTemp = findViewById(R.id.tvTemp);
+        tvClassName = findViewById(R.id.tvClassName);
         rvSubject = findViewById(R.id.rvSubject);
+        bAtten = findViewById(R.id.bAtten);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvSubject.setLayoutManager(linearLayoutManager);
@@ -46,18 +50,31 @@ public class DetailSubjectActivity extends AppCompatActivity {
         }
         String str = (String) bundle.get("object_subject");
 
-        tvTemp.setText(str.toString());
+        tvClassName.setText(str);
+
+        bAtten.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startAttendanceActivity();
+            }
+        });
     }
 
     private void addList() {
-        listStr.add("Cơ sở dữ liệu nâng cao");
-        listStr.add("Cơ sở dữ liệu và hệ quản trị cơ sở dữ liệu");
+        listStr.add("Nguyễn Bình An");
+        listStr.add("Phan Văn Đức");
+        listStr.add("Nguyễn Trung Kiên");
+        listStr.add("Tô Vĩnh Thái");
     }
     private void onClickGoToDetail(String str) {
-        Intent intent = new Intent(this, AttendanceActivity.class);
+        Intent intent = new Intent(this, DetailStudentActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putSerializable("details_subject", str);
+        bundle.putSerializable("details_student", str);
         intent.putExtras(bundle);
+        startActivity(intent);
+    }
+    private void startAttendanceActivity() {
+        Intent intent = new Intent(this, AttendanceActivity.class);
         startActivity(intent);
     }
 }
