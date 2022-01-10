@@ -17,6 +17,9 @@
         android:theme="@style/Theme.ADKT_AndroidProject"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".DetailHistoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetailAttendanceActivity"
             android:exported="false" />
         <activity
@@ -29,7 +32,7 @@
             android:name=".AttendanceActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailSubjectActivity"
+            android:name=".StudentActivity"
             android:exported="false" />
         <activity
             android:name=".AddNewActivity"

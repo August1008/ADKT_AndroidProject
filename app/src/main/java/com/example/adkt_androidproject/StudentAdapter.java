@@ -13,12 +13,12 @@ import com.example.adkt_androidproject.Interfaces.IClickItemListener;
 
 import java.util.List;
 
-public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectViewHolder>{
+public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.SubjectViewHolder>{
 
     private List<String> list;
     private IClickItemListener iClickItemListener;
 
-    public SubjectAdapter(List<String> list, IClickItemListener listener) {
+    public StudentAdapter(List<String> list, IClickItemListener listener) {
         this.list = list;
         this.iClickItemListener = listener;
         notifyDataSetChanged();
@@ -27,7 +27,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectV
     @Override
     public SubjectViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_student, parent, false);
-        return new SubjectAdapter.SubjectViewHolder(view);
+        return new StudentAdapter.SubjectViewHolder(view);
 
     }
 

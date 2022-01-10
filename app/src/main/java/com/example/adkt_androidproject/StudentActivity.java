@@ -15,12 +15,12 @@ import com.example.adkt_androidproject.Interfaces.IClickItemListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetailSubjectActivity extends AppCompatActivity {
+public class StudentActivity extends AppCompatActivity {
 
     TextView tvClassName;
     RecyclerView rvSubject;
     List<String> listStr;
-    SubjectAdapter subjectAdapter;
+    StudentAdapter studentAdapter;
     Button bAtten;
 
     @Override
@@ -36,13 +36,13 @@ public class DetailSubjectActivity extends AppCompatActivity {
         rvSubject.setLayoutManager(linearLayoutManager);
         listStr = new ArrayList<>();
         addList();
-        subjectAdapter = new SubjectAdapter(listStr, new IClickItemListener() {
+        studentAdapter = new StudentAdapter(listStr, new IClickItemListener() {
             @Override
             public void onClickItem(String str) {
                 onClickGoToDetail(str);
             }
         });
-        rvSubject.setAdapter(subjectAdapter);
+        rvSubject.setAdapter(studentAdapter);
 
         Bundle bundle = getIntent().getExtras();
         if (bundle == null) {

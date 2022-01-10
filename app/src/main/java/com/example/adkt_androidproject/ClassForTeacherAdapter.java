@@ -1,11 +1,9 @@
 package com.example.adkt_androidproject;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,12 +13,12 @@ import com.example.adkt_androidproject.Interfaces.IClickItemListener;
 
 import java.util.List;
 
-public class SubjectForTeacherAdapter extends RecyclerView.Adapter<SubjectForTeacherAdapter.SubjectForTeacherViewHolder> {
+public class ClassForTeacherAdapter extends RecyclerView.Adapter<ClassForTeacherAdapter.SubjectForTeacherViewHolder> {
 
     private List<String> list;
     private IClickItemListener iClickItemListener;
 
-    public SubjectForTeacherAdapter(List<String> list, IClickItemListener listener) {
+    public ClassForTeacherAdapter(List<String> list, IClickItemListener listener) {
         this.list = list;
         this.iClickItemListener = listener;
         notifyDataSetChanged();

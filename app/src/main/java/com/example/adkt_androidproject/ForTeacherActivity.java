@@ -5,15 +5,10 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.DatePickerDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.adkt_androidproject.Interfaces.IClickItemListener;
@@ -21,15 +16,13 @@ import com.example.adkt_androidproject.Interfaces.IClickItemListener;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class ForTeacherActivity extends AppCompatActivity {
 
     TextView tvDatePicker;
     RecyclerView rvSubjectTeacher;
-    SubjectForTeacherAdapter subjectForTeacherAdapter;
+    ClassForTeacherAdapter classForTeacherAdapter;
     List<String> listStr;
     CardView cvNew, cvHistory, cvContact, cvInfo;
     ImageButton ibLogout;
@@ -50,13 +43,13 @@ public class ForTeacherActivity extends AppCompatActivity {
         rvSubjectTeacher.setLayoutManager(linearLayoutManager);
         listStr = new ArrayList<>();
         addList();
-        subjectForTeacherAdapter = new SubjectForTeacherAdapter(listStr, new IClickItemListener() {
+        classForTeacherAdapter = new ClassForTeacherAdapter(listStr, new IClickItemListener() {
             @Override
             public void onClickItem(String str) {
                 onClickGoToDetail(str);
             }
         });
-        rvSubjectTeacher.setAdapter(subjectForTeacherAdapter);
+        rvSubjectTeacher.setAdapter(classForTeacherAdapter);
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         tvDatePicker.setText(dtf.format(LocalDateTime.now()) + "\nDanh sách lớp học");
@@ -139,7 +132,7 @@ public class ForTeacherActivity extends AppCompatActivity {
     }
 
     private void onClickGoToDetail(String str) {
-        Intent intent = new Intent(this, DetailSubjectActivity.class);
+        Intent intent = new Intent(this, StudentActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("object_subject", str);
         intent.putExtras(bundle);

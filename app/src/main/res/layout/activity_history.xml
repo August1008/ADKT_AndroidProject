@@ -14,7 +14,7 @@
         android:background="@drawable/custom_edit_text">
 
         <EditText
-            android:id="@+id/tvSearch"
+            android:id="@+id/etSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -23,6 +23,7 @@
             android:padding="10dp" />
 
         <ImageButton
+            android:id="@+id/ibSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
