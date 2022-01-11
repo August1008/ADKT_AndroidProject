@@ -13,14 +13,29 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:src="@drawable/baseline_subject_black_48dp"/>
+    <LinearLayout
 
-    <TextView
-        android:id="@+id/tvSubjectName"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Textname"
-        android:layout_margin="10dp"
-        android:textSize="20dp"
-        android:padding="10dp"
-        android:textColor="@color/black"/>
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvSubjectName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Textname"
+            android:layout_margin="5dp"
+            android:textSize="20dp"
+            android:padding="5dp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/tvclassId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Textname"
+            android:layout_margin="5dp"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+
 </LinearLayout>

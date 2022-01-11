@@ -22,6 +22,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"/>
         <EditText
+            android:id="@+id/etSubject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_edit_text"
@@ -57,9 +58,10 @@
             android:padding="15dp"
             android:layout_marginTop="10dp"/>
         <Button
+            android:id="@+id/btnCreate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tạo mới"
+            android:text="Create"
             android:textSize="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"

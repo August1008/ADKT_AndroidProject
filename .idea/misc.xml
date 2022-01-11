@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Projects/Android Projects/ADKT_AndroidProject/app/src/main/res/layout/activity_attendance.xml" value="0.1" />
+        <entry key="..\:/Projects/Android Projects/ADKT_AndroidProject/app/src/main/res/layout/activity_default_student.xml" value="0.22" />
+        <entry key="..\:/Projects/Android Projects/ADKT_AndroidProject/app/src/main/res/layout/activity_detail_attendance.xml" value="0.1" />
+        <entry key="..\:/Projects/Android Projects/ADKT_AndroidProject/app/src/main/res/layout/activity_detail_history.xml" value="0.22447916666666667" />
+        <entry key="..\:/Projects/Android Projects/ADKT_AndroidProject/app/src/main/res/layout/activity_detail_subject.xml" value="0.15353260869565216" />
+        <entry key="..\:/Projects/Android Projects/ADKT_AndroidProject/app/src/main/res/layout/activity_student_subject_list.xml" value="0.10989583333333333" />
+        <entry key="..\:/Projects/Android Projects/ADKT_AndroidProject/app/src/main/res/layout/item_class.xml" value="0.22447916666666667" />
+        <entry key="..\:/Projects/Android Projects/ADKT_AndroidProject/app/src/main/res/layout/item_subjects.xml" value="0.15579710144927536" />
         <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/drawable/custom_button_circles.xml" value="0.2521172638436482" />
         <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/drawable/custom_edit_text.xml" value="0.2521172638436482" />
         <entry key="..\:/Users/Phand/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/drawable/custom_item.xml" value="0.2521172638436482" />

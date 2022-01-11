@@ -7,8 +7,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.lib.Models.AttendanceModel;
+import com.example.lib.Repository.ITeacherRepository;
+import com.example.lib.RetrofitClient;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DetailStudentActivity extends AppCompatActivity {
 
@@ -23,22 +31,47 @@ public class DetailStudentActivity extends AppCompatActivity {
 
         tvStuId = findViewById(R.id.tvStuId);
         tvStuName = findViewById(R.id.tvStuName);
-        rvDefaultStudent = findViewById(R.id.rvDefaultStudent);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        rvDefaultStudent.setLayoutManager(linearLayoutManager);
-        list = new ArrayList<>();
-        addList();
-        detailStudentAdapter = new DetailStudentAdapter(list);
-        rvDefaultStudent.setAdapter(detailStudentAdapter);
 
         Bundle bundle = getIntent().getExtras();
         if (bundle == null) {
             return;
         }
-        String str = (String) bundle.get("details_student");
+        String enrollmentId = (String) bundle.get("enrollmentId");
+        String classId = (String)bundle.get("classId");
+        String studentId = (String) bundle.get("studentId");
+        String studentName = (String) bundle.get("studentName");
+        tvStuId.setText(studentId);
+        tvStuName.setText(studentName);
 
-        tvStuId.setText(str);
-        tvStuName.setText(str);
+
+        rvDefaultStudent = findViewById(R.id.rvDefaultStudent);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        rvDefaultStudent.setLayoutManager(linearLayoutManager);
+
+
+        list = new ArrayList<>();
+
+
+        // call api lay danh sach diem danh
+        ITeacherRepository teacherRepository = RetrofitClient.getRetrofit().create(ITeacherRepository.class);
+        Call<List<AttendanceModel>> call = teacherRepository.GetAttendanceByEnrollmentId(Integer.parseInt(enrollmentId));
+        call.enqueue(new Callback<List<AttendanceModel>>() {
+            @Override
+            public void onResponse(Call<List<AttendanceModel>> call, Response<List<AttendanceModel>> response) {
+                List<AttendanceModel> aList = response.body();
+                for(AttendanceModel a : aList)
+                {
+                    list.add(a.GetStatus());
+                }
+                detailStudentAdapter = new DetailStudentAdapter(list);
+                rvDefaultStudent.setAdapter(detailStudentAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<AttendanceModel>> call, Throwable t) {
+
+            }
+        });
 
     }
 

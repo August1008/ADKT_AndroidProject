@@ -28,35 +28,35 @@ public class HistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
-        rvHistory = findViewById(R.id.rvHistory);
-        ibSearch = findViewById(R.id.ibSearch);
-        etSearch = findViewById(R.id.etSearch);
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        rvHistory.setLayoutManager(linearLayoutManager);
-        list = new ArrayList<>();
-        addList();
-        classForTeacherAdapter = new ClassForTeacherAdapter(list, new IClickItemListener() {
-            @Override
-            public void onClickItem(String str) {
-                onClickGoToDetail(str);
-            }
-        });
-        rvHistory.setAdapter(classForTeacherAdapter);
-
-        ibSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                search(etSearch.getText().toString());
-                classForTeacherAdapter = new ClassForTeacherAdapter(search(etSearch.getText().toString()), new IClickItemListener() {
-                    @Override
-                    public void onClickItem(String str) {
-                        onClickGoToDetail(str);
-                    }
-                });
-                rvHistory.setAdapter(classForTeacherAdapter);
-            }
-        });
+//        rvHistory = findViewById(R.id.rvHistory);
+//        ibSearch = findViewById(R.id.ibSearch);
+//        etSearch = findViewById(R.id.etSearch);
+//
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+//        rvHistory.setLayoutManager(linearLayoutManager);
+//        list = new ArrayList<>();
+//        addList();
+//        classForTeacherAdapter = new ClassForTeacherAdapter(list, new IClickItemListener() {
+//            @Override
+//            public void onClickItem(String str) {
+//                onClickGoToDetail(str);
+//            }
+//        });
+//        rvHistory.setAdapter(classForTeacherAdapter);
+//
+//        ibSearch.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                search(etSearch.getText().toString());
+//                classForTeacherAdapter = new ClassForTeacherAdapter(search(etSearch.getText().toString()), new IClickItemListener() {
+//                    @Override
+//                    public void onClickItem(String str) {
+//                        onClickGoToDetail(str);
+//                    }
+//                });
+//                rvHistory.setAdapter(classForTeacherAdapter);
+//            }
+//        });
     }
 
     public void addList() {

@@ -12,18 +12,26 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.adkt_androidproject.Interfaces.IClickItemListener;
+import com.example.lib.Models.ClassModel;
+import com.example.lib.Models.EnrollmentModel;
+import com.example.lib.Repository.ITeacherRepository;
+import com.example.lib.RetrofitClient;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class ForTeacherActivity extends AppCompatActivity {
 
     TextView tvDatePicker;
     RecyclerView rvSubjectTeacher;
     ClassForTeacherAdapter classForTeacherAdapter;
-    List<String> listStr;
+    List<ClassModel> classList;
     CardView cvNew, cvHistory, cvContact, cvInfo;
     ImageButton ibLogout;
 
@@ -41,15 +49,37 @@ public class ForTeacherActivity extends AppCompatActivity {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvSubjectTeacher.setLayoutManager(linearLayoutManager);
-        listStr = new ArrayList<>();
-        addList();
-        classForTeacherAdapter = new ClassForTeacherAdapter(listStr, new IClickItemListener() {
+        classList = new ArrayList<ClassModel>();
+
+        // lay teacherId tu giao dien dang nhap
+        String teacherId = getIntent().getStringExtra("teacherId");
+        ITeacherRepository teacherRepository = RetrofitClient.getRetrofit().create(ITeacherRepository.class);
+        Call<List<ClassModel>> call = teacherRepository.GetClassListByTeacherId(teacherId);
+        call.enqueue(new Callback<List<ClassModel>>() {
             @Override
-            public void onClickItem(String str) {
-                onClickGoToDetail(str);
+            public void onResponse(Call<List<ClassModel>> call, Response<List<ClassModel>> response) {
+                classList = response.body();
+                classForTeacherAdapter = new ClassForTeacherAdapter(classList, new IClickItemListener() {
+                    @Override
+                    public void onClickItem(String str) {
+                        onClickGoToDetail(str);
+                    }
+
+                    @Override
+                    public void onClickEnrollment(EnrollmentModel model) {
+
+                    }
+                });
+                rvSubjectTeacher.setAdapter(classForTeacherAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<ClassModel>> call, Throwable t) {
+
             }
         });
-        rvSubjectTeacher.setAdapter(classForTeacherAdapter);
+
+
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         tvDatePicker.setText(dtf.format(LocalDateTime.now()) + "\nDanh sách lớp học");
@@ -57,7 +87,7 @@ public class ForTeacherActivity extends AppCompatActivity {
         cvNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startNewActivity();
+                startNewActivity(teacherId);
             }
         });
 
@@ -102,21 +132,9 @@ public class ForTeacherActivity extends AppCompatActivity {
         datePickerDialog.show();
     }*/
 
-    public void addList() {
-        listStr.add("19DTHA1");
-        listStr.add("19DTHA2");
-        listStr.add("19DTHA3");
-        listStr.add("19DTHA4");
-        listStr.add("19DTHA5");
-        listStr.add("19DTHA6");
-        listStr.add("19DTHA7");
-        listStr.add("19DTHA8");
-        listStr.add("19DTHA9");
-        listStr.add("19DTHA10");
-    }
-
-    private void startNewActivity() {
+    private void startNewActivity(String teacherId) {
         Intent intent = new Intent(this, AddNewActivity.class);
+        intent.putExtra("teacherId",teacherId);
         startActivity(intent);
     }
 

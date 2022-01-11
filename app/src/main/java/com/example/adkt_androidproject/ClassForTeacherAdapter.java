@@ -10,15 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adkt_androidproject.Interfaces.IClickItemListener;
+import com.example.lib.Models.ClassModel;
 
 import java.util.List;
 
 public class ClassForTeacherAdapter extends RecyclerView.Adapter<ClassForTeacherAdapter.SubjectForTeacherViewHolder> {
 
-    private List<String> list;
+    private List<ClassModel> list;
     private IClickItemListener iClickItemListener;
 
-    public ClassForTeacherAdapter(List<String> list, IClickItemListener listener) {
+    public ClassForTeacherAdapter(List<ClassModel> list, IClickItemListener listener) {
         this.list = list;
         this.iClickItemListener = listener;
         notifyDataSetChanged();
@@ -34,16 +35,16 @@ public class ClassForTeacherAdapter extends RecyclerView.Adapter<ClassForTeacher
 
     @Override
     public void onBindViewHolder(@NonNull SubjectForTeacherViewHolder holder, int position) {
-         String str = list.get(position);
-         if (str == null) {
+         ClassModel classModel = list.get(position);
+         if (classModel == null) {
              return;
          }
-         holder.tvSubjectName.setText("Lớp: " + str);
-
+         holder.tvSubjectName.setText(classModel.subject);
+         holder.tvclassId.setText(classModel.classId);
          holder.layout.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-                 iClickItemListener.onClickItem(str);
+                 iClickItemListener.onClickItem(classModel.classId);
              }
          });
     }
@@ -59,13 +60,14 @@ public class ClassForTeacherAdapter extends RecyclerView.Adapter<ClassForTeacher
 
     public class SubjectForTeacherViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvSubjectName;
+        TextView tvSubjectName,tvclassId;
         LinearLayout layout;
 
         public SubjectForTeacherViewHolder(@NonNull View itemView) {
             super(itemView);
             layout = itemView.findViewById(R.id.item_subjects);
             tvSubjectName = itemView.findViewById(R.id.tvSubjectName);
+            tvclassId = itemView.findViewById(R.id.tvclassId);
         }
     }
 }

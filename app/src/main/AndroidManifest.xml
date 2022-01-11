@@ -32,6 +32,9 @@
             android:name=".InfoTeacherActivity"
             android:exported="false" />
         <activity
+            android:name=".StudentSubjectListActivity"
+            android:exported="true" />
+        <activity
             android:name=".AttendanceActivity"
             android:exported="false" />
         <activity

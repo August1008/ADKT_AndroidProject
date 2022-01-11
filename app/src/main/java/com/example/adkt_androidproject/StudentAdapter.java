@@ -10,15 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adkt_androidproject.Interfaces.IClickItemListener;
+import com.example.lib.Models.EnrollmentModel;
 
 import java.util.List;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.SubjectViewHolder>{
 
-    private List<String> list;
+    private List<EnrollmentModel> list;
     private IClickItemListener iClickItemListener;
 
-    public StudentAdapter(List<String> list, IClickItemListener listener) {
+    public StudentAdapter(List<EnrollmentModel> list, IClickItemListener listener) {
         this.list = list;
         this.iClickItemListener = listener;
         notifyDataSetChanged();
@@ -33,15 +34,15 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.SubjectV
 
     @Override
     public void onBindViewHolder(@NonNull SubjectViewHolder holder, int position) {
-        String str = list.get(position);
-        if (str == null) {
+        EnrollmentModel enrollmentModel = list.get(position);
+        if (enrollmentModel == null) {
             return;
         }
-        holder.tvStudentName.setText(str);
+        holder.tvStudentName.setText(enrollmentModel.studentName);
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iClickItemListener.onClickItem(str);
+                iClickItemListener.onClickEnrollment(enrollmentModel);
             }
         });
     }
