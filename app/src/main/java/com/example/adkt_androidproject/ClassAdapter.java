@@ -59,6 +59,7 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHol
             tvTeacherName = itemView.findViewById(R.id.tvTeacherName);
             tvTimes = itemView.findViewById(R.id.tvTimes);
         }
+
     }
 
     private int randomColor() {

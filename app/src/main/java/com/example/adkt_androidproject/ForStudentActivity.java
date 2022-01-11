@@ -81,5 +81,6 @@ public class ForStudentActivity extends AppCompatActivity {
         Intent intent = new Intent(this, JoinClassActivity.class);
         startActivity(intent);
     }
+    //test
 
 }
