@@ -1,6 +1,8 @@
 package com.example.lib.Models;
 
-public class StudentModel extends UserModel {
+import java.io.Serializable;
+
+public class StudentModel extends UserModel implements Serializable {
     public String studentId;
     public String name;
     public String birthDay;

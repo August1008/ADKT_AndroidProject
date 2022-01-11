@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void openForTeacher(String teacherId){
         Intent intent = new Intent(MainActivity.this, ForTeacherActivity.class);
-        intent.putExtra("teacherId",teacherId);
+        intent.putExtra("teacherid",teacherId);
         startActivity(intent);
     }
     private void openForStudent(String studentId, String studentName){

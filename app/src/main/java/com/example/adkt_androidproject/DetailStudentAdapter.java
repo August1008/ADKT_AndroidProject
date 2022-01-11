@@ -36,7 +36,7 @@ public class DetailStudentAdapter extends RecyclerView.Adapter<DetailStudentAdap
         //holder.tvLesson.setText(str);
         holder.tvTime.setText("09/05/2000 - 12:30");
         holder.tvStatus.setText(str);
-        if (str.equals("False")) {
+        if (str.equals("missing")) {
             holder.layout.setCardBackgroundColor(holder.itemView.getResources().getColor(R.color.red, null));
         } else {
             holder.layout.setCardBackgroundColor(holder.itemView.getResources().getColor(R.color.green, null));

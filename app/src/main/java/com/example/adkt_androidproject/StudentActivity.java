@@ -28,14 +28,14 @@ public class StudentActivity extends AppCompatActivity {
     RecyclerView rvSubject;
     List<EnrollmentModel> studentList;
     StudentAdapter studentAdapter;
-    Button bAtten;
-    String classId;
+    Button bAtten,bReturn;
+    String classId,teacherId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_subject);
 
-        tvClassName = findViewById(R.id.tvClassName);
+        bReturn = findViewById(R.id.bReturn);
         rvSubject = findViewById(R.id.rvSubject);
         bAtten = findViewById(R.id.bAtten);
 
@@ -45,7 +45,8 @@ public class StudentActivity extends AppCompatActivity {
             return;
         }
         classId = (String) bundle.get("object_subject");
-        tvClassName.setText("ID: " + classId);
+
+        teacherId = (String)bundle.get("teacherid");
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvSubject.setLayoutManager(linearLayoutManager);
@@ -80,12 +81,17 @@ public class StudentActivity extends AppCompatActivity {
         });
 
 
-
+        bReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                returnForTeacherActivity();
+            }
+        });
 
         bAtten.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startAttendanceActivity();
+                startAttendanceActivity(classId);
             }
         });
     }
@@ -97,11 +103,20 @@ public class StudentActivity extends AppCompatActivity {
         bundle.putSerializable("studentId", model.studentId);
         bundle.putSerializable("studentName", model.studentName);
         bundle.putSerializable("classId", classId);
+        bundle.putSerializable("teacherid",teacherId);
         intent.putExtras(bundle);
         startActivity(intent);
     }
-    private void startAttendanceActivity() {
+    private void startAttendanceActivity(String classId) {
         Intent intent = new Intent(this, AttendanceActivity.class);
+        intent.putExtra("classid",classId);
+        intent.putExtra("teacherid",teacherId);
+        startActivity(intent);
+    }
+    private void returnForTeacherActivity()
+    {
+        Intent intent = new Intent(StudentActivity.this, ForTeacherActivity.class);
+        intent.putExtra("teacherid",teacherId);
         startActivity(intent);
     }
 }

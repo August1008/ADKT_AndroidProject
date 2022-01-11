@@ -18,6 +18,8 @@ import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 public interface StudentRepository {
+
+
     @GET("api/Students/get-student-list")
     Call<StudentModel> GetStudentList();
     @Multipart

@@ -10,13 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.lib.Models.StudentModel;
+
 import java.util.List;
 
 public class DetailAttendanceAdapter extends RecyclerView.Adapter<DetailAttendanceAdapter.DefaultAttendanceViewHolder>{
 
-    private List<String> list;
+    private List<StudentModel> list;
 
-    public DetailAttendanceAdapter(List<String> list) {
+    public DetailAttendanceAdapter(List<StudentModel> list) {
         this.list = list;
         notifyDataSetChanged();
     }
@@ -29,20 +31,16 @@ public class DetailAttendanceAdapter extends RecyclerView.Adapter<DetailAttendan
 
     @Override
     public void onBindViewHolder(@NonNull DefaultAttendanceViewHolder holder, int position) {
-        String str = list.get(position);
-        if (str == null) {
+        StudentModel studentModel = list.get(position);
+        if (studentModel == null) {
             return;
         }
-        //holder.tvName.setText(str);
-        holder.tvSta.setText(str);
-        if (str.equals("False")) {
-            holder.ivIconStatus.setImageDrawable(holder.itemView.getResources().getDrawable(R.drawable.outline_highlight_off_black_48dp, null));
-            holder.layout.setCardBackgroundColor(holder.itemView.getResources().getColor(R.color.red, null));
-        } else {
-            holder.ivIconStatus.setImageDrawable(holder.itemView.getResources().getDrawable(R.drawable.baseline_check_circle_outline_black_48dp, null));
-            holder.layout.setCardBackgroundColor(holder.itemView.getResources().getColor(R.color.green, null));
+        holder.tvName.setText(studentModel.name);
+        holder.tvstudentId.setText(studentModel.studentId);
+        holder.ivIconStatus.setImageDrawable(holder.itemView.getResources().getDrawable(R.drawable.baseline_check_circle_outline_black_48dp, null));
+        holder.layout.setCardBackgroundColor(holder.itemView.getResources().getColor(R.color.green, null));
         }
-    }
+
 
     @Override
     public int getItemCount() {
@@ -56,13 +54,13 @@ public class DetailAttendanceAdapter extends RecyclerView.Adapter<DetailAttendan
     public class DefaultAttendanceViewHolder extends RecyclerView.ViewHolder {
 
         ImageView ivIconStatus;
-        TextView tvName, tvSta;
+        TextView tvName, tvstudentId;
         CardView layout;
         public DefaultAttendanceViewHolder(@NonNull View itemView) {
             super(itemView);
             layout = itemView.findViewById(R.id.item_DetailAttendance);
             tvName = itemView.findViewById(R.id.tvName);
-            tvSta = itemView.findViewById(R.id.tvSta);
+            tvstudentId = itemView.findViewById(R.id.tvstudentId);
             ivIconStatus = itemView.findViewById(R.id.ivIconStatus);
         }
     }

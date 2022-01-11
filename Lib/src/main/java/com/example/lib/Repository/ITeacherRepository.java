@@ -33,7 +33,7 @@ public interface ITeacherRepository {
 
     @POST("api/Teachers/class-attendance")
     @Multipart
-    Call<List<StudentModel>> Attendances(@Part MultipartBody.Part classImage,
+    Call<List<StudentModel>> SaveAttendances(@Part MultipartBody.Part classImage,
                                          @Part(Const.KEY_CLASSID)RequestBody classId);
 
 }

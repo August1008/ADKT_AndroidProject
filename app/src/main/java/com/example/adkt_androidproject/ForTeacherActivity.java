@@ -34,6 +34,7 @@ public class ForTeacherActivity extends AppCompatActivity {
     List<ClassModel> classList;
     CardView cvNew, cvHistory, cvContact, cvInfo;
     ImageButton ibLogout;
+    String teacherId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,7 @@ public class ForTeacherActivity extends AppCompatActivity {
         classList = new ArrayList<ClassModel>();
 
         // lay teacherId tu giao dien dang nhap
-        String teacherId = getIntent().getStringExtra("teacherId");
+        teacherId = getIntent().getStringExtra("teacherid");
         ITeacherRepository teacherRepository = RetrofitClient.getRetrofit().create(ITeacherRepository.class);
         Call<List<ClassModel>> call = teacherRepository.GetClassListByTeacherId(teacherId);
         call.enqueue(new Callback<List<ClassModel>>() {
@@ -150,10 +151,12 @@ public class ForTeacherActivity extends AppCompatActivity {
     }
 
     private void onClickGoToDetail(String str) {
-        Intent intent = new Intent(this, StudentActivity.class);
+        Intent intent = new Intent(ForTeacherActivity.this, StudentActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("object_subject", str);
+        bundle.putString("teacherid",teacherId);
         intent.putExtras(bundle);
+
         startActivity(intent);
     }
 

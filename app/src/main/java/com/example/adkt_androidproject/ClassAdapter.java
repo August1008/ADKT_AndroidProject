@@ -35,9 +35,9 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHol
         if (enrollmentModel == null) {
             return;
         }
-        holder.tvTimes.setText(enrollmentModel.startDate);
+        holder.tvTimes.setText(enrollmentModel.startDate + " - " + enrollmentModel.endDate);
         holder.tvTeacherName.setText(enrollmentModel.teacherName);
-        holder.tvClassname.setText(enrollmentModel.classId);
+        holder.tvClassname.setText(enrollmentModel.subject);
         holder.layout.setCardBackgroundColor(holder.itemView.getResources().getColor(randomColor(), null));
     }
 
