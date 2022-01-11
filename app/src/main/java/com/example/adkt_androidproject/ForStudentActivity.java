@@ -9,17 +9,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.adkt_androidproject.Interfaces.IClickItemListener;
+import com.example.lib.Models.EnrollmentModel;
+import com.example.lib.Repository.StudentRepository;
+import com.example.lib.RetrofitClient;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ForStudentActivity extends AppCompatActivity {
 
     ImageButton ibLog_out;
     ClassAdapter classAdapter;
     RecyclerView rvClass;
-    List<String> list;
+    List<EnrollmentModel> enrollmentModelList;
     FloatingActionButton fabAdd;
 
     @Override
@@ -33,10 +41,22 @@ public class ForStudentActivity extends AppCompatActivity {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvClass.setLayoutManager(linearLayoutManager);
-        list = new ArrayList<>();
-        addList();
-        classAdapter = new ClassAdapter(list);
-        rvClass.setAdapter(classAdapter);
+        String studentId = getIntent().getStringExtra("studentId");
+        StudentRepository studentRepository = RetrofitClient.getRetrofit().create(StudentRepository.class);
+        Call<List<EnrollmentModel>> call = studentRepository.GetEnrollmentsBystudentId(studentId);
+        call.enqueue(new Callback<List<EnrollmentModel>>() {
+            @Override
+            public void onResponse(Call<List<EnrollmentModel>> call, Response<List<EnrollmentModel>> response) {
+                enrollmentModelList = response.body();
+                classAdapter = new ClassAdapter(enrollmentModelList);
+                rvClass.setAdapter(classAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<EnrollmentModel>> call, Throwable t) {
+
+            }
+        });
         ibLog_out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,12 +82,4 @@ public class ForStudentActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void addList() {
-        list.add("19DTHA1");
-        list.add("19DTHA2");
-        list.add("19DTHA5");
-        list.add("19DTHA6");
-        list.add("19DTHA8");
-        list.add("19DTHA10");
-    }
 }
