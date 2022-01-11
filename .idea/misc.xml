@@ -8,10 +8,23 @@
         <entry key="..\:/ADKT_AndroidProject/app/src/main/res/layout/activity_student_info.xml" value="0.25" />
         <entry key="..\:/ADKT_AndroidProject/app/src/main/res/layout/activity_student_subject.xml" value="0.21" />
         <entry key="..\:/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_add_image_student.xml" value="0.3625" />
+        <entry key="..\:/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_attendance.xml" value="0.19947916666666668" />
         <entry key="..\:/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_create_account.xml" value="0.3625" />
+        <entry key="..\:/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_default_student.xml" value="0.19947916666666668" />
+        <entry key="..\:/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_detail_attendance.xml" value="0.19947916666666668" />
+        <entry key="..\:/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_detail_history.xml" value="0.19947916666666668" />
+        <entry key="..\:/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_detail_subject.xml" value="0.19947916666666668" />
         <entry key="..\:/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_for_student.xml" value="0.29444444444444445" />
+        <entry key="..\:/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_for_teacher.xml" value="0.19947916666666668" />
+        <entry key="..\:/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_info_teacher.xml" value="0.19947916666666668" />
+        <entry key="..\:/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_join_class.xml" value="0.19947916666666668" />
         <entry key="..\:/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/activity_student_subject_list.xml" value="0.3625" />
+        <entry key="..\:/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/item_attendance.xml" value="0.19947916666666668" />
+        <entry key="..\:/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/item_class.xml" value="0.19947916666666668" />
+        <entry key="..\:/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/item_detail.xml" value="0.19947916666666668" />
         <entry key="..\:/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/item_photo.xml" value="0.3625" />
+        <entry key="..\:/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/item_student.xml" value="0.19947916666666668" />
+        <entry key="..\:/AndroidStudioProjects/ADKT_AndroidProject/app/src/main/res/layout/item_subjects.xml" value="0.19947916666666668" />
       </map>
     </option>
   </component>

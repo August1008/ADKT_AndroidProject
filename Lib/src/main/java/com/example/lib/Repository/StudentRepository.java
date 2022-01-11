@@ -3,7 +3,7 @@ package com.example.lib.Repository;
 import com.example.lib.Models.Const;
 import com.example.lib.Models.EnrollmentModel;
 import com.example.lib.Models.InsertModel.InsertResultModel;
-import com.example.lib.Models.InsertModel.StudentInsertModel;
+import com.example.lib.Models.ResultModels.AddEnrollmentResult;
 import com.example.lib.Models.StudentModel;
 
 import java.util.List;
@@ -11,7 +11,6 @@ import java.util.List;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -35,6 +34,6 @@ public interface StudentRepository {
                                              );
     @GET("api/Enrollments/get-enrollments")
     Call<List<EnrollmentModel>> GetEnrollmentsBystudentId(@Query("studentId") String studentId);
-//    @POST("api/Students/enroll")
-//    Call<InsertResultModel>
+    @POST("api/Students/enroll")
+    Call<AddEnrollmentResult> EnrollClass(@Query("classId") String classId, @Query("studentId") String studentId);
 }

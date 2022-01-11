@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.adkt_androidproject.Interfaces.IClickItemListener;
 import com.example.lib.Models.EnrollmentModel;
+import com.example.lib.Models.StudentModel;
 import com.example.lib.Repository.StudentRepository;
 import com.example.lib.RetrofitClient;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -46,6 +47,8 @@ public class ForStudentActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvClass.setLayoutManager(linearLayoutManager);
         String studentId = getIntent().getStringExtra("studentId");
+        String studentName = getIntent().getStringExtra("name");
+        tvStudentTiltle.setText("Hello "+studentName);
 
         StudentRepository studentRepository = RetrofitClient.getRetrofit().create(StudentRepository.class);
         Call<List<EnrollmentModel>> call = studentRepository.GetEnrollmentsBystudentId(studentId);
@@ -72,7 +75,7 @@ public class ForStudentActivity extends AppCompatActivity {
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startAddClassActivity();
+                startAddClassActivity(studentId,studentName);
             }
         });
     }
@@ -82,8 +85,10 @@ public class ForStudentActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
-    private void startAddClassActivity() {
+    private void startAddClassActivity(String studentId, String name) {
         Intent intent = new Intent(this, JoinClassActivity.class);
+        intent.putExtra("studentId",studentId);
+        intent.putExtra("name",name);
         startActivity(intent);
     }
     //test

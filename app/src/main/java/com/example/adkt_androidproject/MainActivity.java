@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                             {
 
                                 Toast.makeText(MainActivity.this,result.student.name,Toast.LENGTH_SHORT).show();
-                                openForStudent(result.student.studentId);
+                                openForStudent(result.student.studentId, result.student.name);
                             }
                         }
 
@@ -135,9 +135,10 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("teacherId",teacherId);
         startActivity(intent);
     }
-    private void openForStudent(String studentId){
+    private void openForStudent(String studentId, String studentName){
         Intent intent = new Intent(MainActivity.this, ForStudentActivity.class);
         intent.putExtra("studentId",studentId);
+        intent.putExtra("name", studentName);
         startActivity(intent);
     }
 }
