@@ -13,20 +13,23 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginBottom="10dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CLASS"
-            android:layout_centerInParent="true"
             android:layout_alignParentLeft="true"
-            android:textSize="25dp"/>
+            android:layout_centerInParent="true"
+            android:text="CLASS"
+            android:textSize="25dp" />
+
         <TextView
+            android:id="@+id/tvStudentTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello - name"
-            android:textSize="20dp"
             android:layout_centerInParent="true"
-            android:layout_marginStart="20dp"/>
+            android:layout_marginStart="20dp"
+            android:text="Hello - name"
+            android:textSize="20dp" />
 
         <ImageButton
             android:id="@+id/ibLog_out"

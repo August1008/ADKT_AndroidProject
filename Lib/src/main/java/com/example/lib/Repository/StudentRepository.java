@@ -36,5 +36,5 @@ public interface StudentRepository {
     @GET("api/Enrollments/get-enrollments")
     Call<List<EnrollmentModel>> GetEnrollmentsBystudentId(@Query("studentId") String studentId);
 //    @POST("api/Students/enroll")
-//    Call
+//    Call<InsertResultModel>
 }

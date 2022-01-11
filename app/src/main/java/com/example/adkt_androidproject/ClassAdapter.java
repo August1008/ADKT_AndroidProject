@@ -9,14 +9,16 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.lib.Models.EnrollmentModel;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHolder>{
-    private List<String> list;
+    private List<EnrollmentModel> list;
 
-    public ClassAdapter(List<String> list) {
+    public ClassAdapter(List<EnrollmentModel> list) {
         this.list = list;
         notifyDataSetChanged();
     }
@@ -29,13 +31,13 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ClassViewHol
 
     @Override
     public void onBindViewHolder(@NonNull ClassViewHolder holder, int position) {
-        String str = list.get(position);
-        if (str == null) {
+        EnrollmentModel enrollmentModel = list.get(position);
+        if (enrollmentModel == null) {
             return;
         }
-        holder.tvTimes.setText("09/05/2000 - 12:30");
-        holder.tvTeacherName.setText("Tên giảng viên");
-        holder.tvClassname.setText(str);
+        holder.tvTimes.setText(enrollmentModel.startDate);
+        holder.tvTeacherName.setText(enrollmentModel.teacherName);
+        holder.tvClassname.setText(enrollmentModel.classId);
         holder.layout.setCardBackgroundColor(holder.itemView.getResources().getColor(randomColor(), null));
     }
 
